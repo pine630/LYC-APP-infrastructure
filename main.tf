@@ -19,7 +19,7 @@ terraform {
 # 配置 AWS provider 和区域
 provider "aws" {
   # 配置 AWS 区域
-  # region = "us-east-1"  
+  # region = "ap-northeast-1"  
   # 配置 AWS 访问密钥明码，用于身份验证
   # 注意：直接在代码中使用明码访问密钥是不安全的，建议使用环境变量或其他安全的方式传递这些敏感信息
 }
@@ -72,7 +72,7 @@ resource "aws_default_vpc" "default_vpc" {
 # 创建 EC2 实例
 resource "aws_instance" "linux_instance" {
   # 使用的 AMI 镜像 ID，us-east-1区的 Amazon linux 2023
-  ami = "ami-01816d07b1128cd2d"
+  ami = "ami-0d921a0e79f9f6e6e"
   # 实例类型
   instance_type = "t2.micro"
   # 密钥对名称
