@@ -23,7 +23,9 @@ provider "aws" {
   # 配置 AWS 访问密钥明码，用于身份验证
   # 注意：直接在代码中使用明码访问密钥是不安全的，建议使用环境变量或其他安全的方式传递这些敏感信息
 }
-
+resource "aws_default_subnet" "default_subnet_a" {
+  availability_zone = "ap-northeast-1a"
+}
 # 创建 EC2 安全组
 resource "aws_security_group" "ec2_security_group" {
   # 安全组名称
@@ -79,6 +81,8 @@ resource "aws_instance" "linux_instance" {
   key_name = "LYC-APP2"
   # IAM 实例配置文件
   iam_instance_profile = "EC2CodeDeploy-new"
+
+  subnet_id = aws_default_subnet.default_subnet_a.id
   # 实例标签
   tags = {
     Name = "LYC-APP2"
