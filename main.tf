@@ -19,7 +19,7 @@ terraform {
 # 配置 AWS provider 和区域
 provider "aws" {
   # 配置 AWS 区域
-  # region = "ap-northeast-1"  
+  region = "ap-northeast-1"  
   # 配置 AWS 访问密钥明码，用于身份验证
   # 注意：直接在代码中使用明码访问密钥是不安全的，建议使用环境变量或其他安全的方式传递这些敏感信息
 }
@@ -105,7 +105,7 @@ resource "aws_instance" "linux_instance" {
               sudo yum -y install ruby
               sudo yum -y install wget
               cd /home/ec2-user
-              wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install
+              wget https://aws-codedeploy-ap-northeast-1.s3.us-east-1.amazonaws.com/latest/install
               sudo chmod +x ./install
               sudo ./install auto
               systemctl status codedeploy-agent
